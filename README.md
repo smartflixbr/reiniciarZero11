@@ -1,6 +1,6 @@
 # Vamos criar um guia completo e detalhado para configurar uma nova máquina com DRM O11 para:
 
-1. **Rebootar a máquina diariamente às 04h00.**
+1. **Rebootar a máquina diariamente às 04h00 da manhã.**
 2. **Monitorar o uso de memória a cada 5min e encerrar o processo `./o11` se exceder 60% da RAM.**
 3. **Manter e limpar logs conforme a retenção definida:**
    - **`kill_o11.log`**: Guardar logs por **7 dias** antes de serem limpos.
@@ -25,13 +25,17 @@
 
 #### **Passo 0: Configurar o Fuso Horário do Sistema**
 
-Antes de qualquer coisa, é essencial garantir que o sistema esteja no fuso horário correto para que os agendamentos no `cron` sejam executados no horário desejado.
+1. Antes de qualquer coisa, é essencial garantir que o sistema esteja no fuso horário correto para que os agendamentos no `cron` sejam executados no horário desejado.
+2. Somente faça o Passo 0 se você nunca definiu o fuso da maquina para o Brasil.
 
 ```bash
 sudo timedatectl set-timezone America/Sao_Paulo
 ```
+```bash
+sudo reboot
+```
 
-- **O que faz**: Ajusta o fuso horário do sistema para o horário de Brasília (BRT/BRST).
+- **O que faz**: Ajusta o fuso horário do sistema para o horário de Brasília (BRT/BRST) e reinicia a maquina para aplicar.
 
 ---
 
